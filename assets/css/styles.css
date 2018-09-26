@@ -32,3 +32,13 @@ header h1 {
     font-style: italic;
     font-weight: 500;
 }
+
+
+/* home */
+#home-h1 {
+    font-size: 3rem;
+}
+
+#home-header {
+    border-bottom: 2px solid black;
+}
