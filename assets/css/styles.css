@@ -43,6 +43,10 @@ header h1 {
     border-bottom: 2px solid black;
 }
 
+.img-thumbnail {
+    border-color: #57201F;
+}
+
 #progressBarRow {
     margin-top: 3rem;
 }
