@@ -42,3 +42,15 @@ header h1 {
 #home-header {
     border-bottom: 2px solid black;
 }
+
+#progressBarRow {
+    margin-top: 3rem;
+}
+
+div.progress .progress-bar {
+    width: 25%;    
+}
+div.progress {
+    border-radius: 2px;
+    height: 40px;
+}
