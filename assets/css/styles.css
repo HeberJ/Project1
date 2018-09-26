@@ -54,3 +54,9 @@ div.progress {
     border-radius: 2px;
     height: 40px;
 }
+
+
+#mobile-divide-line {
+    margin-top: 1rem;
+    border-top: 1px solid black;
+}
