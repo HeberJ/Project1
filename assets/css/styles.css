@@ -1,9 +1,15 @@
 /* global */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
     background-color: rgba(161, 161, 161, .2);
 }
 
-
+main {
+    font-size: 1.2rem;
+}
 
 /* log in */
 header h1 {
@@ -48,9 +54,6 @@ header h1 {
     border-color: #57201F;
 }
 
-#progressBarRow {
-    margin-top: 3rem;
-}
 
 div.progress .progress-bar {
     width: 25%;    
@@ -60,6 +63,10 @@ div.progress {
     height: 40px;
 }
 
+div h2 {
+    text-decoration: underline;
+    font-size: 1.5rem;
+}
 
 #content-divider {
     margin-top: 1rem;
