@@ -39,8 +39,9 @@ header h1 {
     font-size: 3rem;
 }
 
-#home-header {
-    border-bottom: 2px solid black;
+.header-divider {
+    border-top: 2px solid black;
+    width: 100%;
 }
 
 .img-thumbnail {
@@ -60,7 +61,7 @@ div.progress {
 }
 
 
-#mobile-divide-line {
+#content-divider {
     margin-top: 1rem;
     border-top: 1px solid black;
 }
