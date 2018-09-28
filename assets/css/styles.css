@@ -32,3 +32,36 @@ header h1 {
     font-style: italic;
     font-weight: 500;
 }
+
+
+/* home */
+#home-h1 {
+    font-size: 3rem;
+}
+
+.header-divider {
+    border-top: 2px solid black;
+    width: 100%;
+}
+
+.img-thumbnail {
+    border-color: #57201F;
+}
+
+#progressBarRow {
+    margin-top: 3rem;
+}
+
+div.progress .progress-bar {
+    width: 25%;    
+}
+div.progress {
+    border-radius: 2px;
+    height: 40px;
+}
+
+
+#content-divider {
+    margin-top: 1rem;
+    border-top: 1px solid black;
+}
