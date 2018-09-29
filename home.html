@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/home.css">
     <title>Developing Dads</title>
 </head>
 <body>
@@ -14,44 +14,84 @@
     <div class="container-fluid">
 
         <header class="row">
-            <h1 id="home-h1" class="col-8 col-md-6 offset-md-1">Developing Dads</h1><i class="fas fa-user-circle fa-3x col-1 offset-2 col-md-1 offset-md-4 mt-1"></i>
-            <div class="header-divider"></div>
+            <h1 class="col-8 col-md-6 offset-md-1">Developing Dads</h1><i class="fas fa-user-circle fa-3x col-1 offset-2 col-md-1 offset-md-4 mt-1"></i>
+            <div id="header-divider"></div>
         </header>
-        <!-- picture row -->
-        <section class="row mt-2">
-            <!-- container for picture -->
-            <div class="col-10 offset-1">
-                <img class="img-fluid img-thumbnail" src="assets/images/placeholder.jpg" alt="Dad with baby sleeping">
-            </div>
 
-        </section>
+        <main>
+            <!-- picture row -->
+            <section class="row mt-2">
+
+                <!-- front and back card -->
+                <div class="CardContainer col col-sm-10 offset-sm-1 col-md-4 offset-md-0 text-center">
+
+                    <div class="Card">
+                        <div class="front">
+                            <img class="img-fluid img-thumbnail" src="assets/images/placeholder.jpg" alt="Dad with baby sleeping">
+                        </div>
+                        <div class="back">
+                            <table class="table d-md-none">
+                                <thead>
+                                    <th>Week #</th>
+                                    <th>Baby Size</th>
+                                    <th>Info</th>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="w-100 my-2"></div>
+
+                    <!-- progress bar -->
+                    <div class="progress bg-secondary">
+                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="1" aria-valuemax="50"></div>
+                    </div>
 
 
-        <section id="progressBarRow" class="row">
-            <div class="col-10 offset-1 text-center">
-                <div class="progress bg-secondary">
-                    <div id="progressFill" class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="1" aria-valuemax="50"></div>
+                    <div class="w-100"></div>
+
+                    <p>You are on week <span class="weekNumber">10</span></p>
+
+                    <div class="w-100"></div>
+
+                    <div class="col text-center">
+                        <button id="weekInfoBtn" class="btn d-md-none">View Week Info</button>
+                        <button id="weekInfoBtn2" class="btn">Back</button>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="row">
-            <p class="col text-center">You are on week <span class="weekNumber">10</span></p>
-        </section>
+                <!-- table -->
+                <table class="table d-none d-md-table col-md-8">
+                    <thead>
+                        <th>Week #</th>
+                        <th>Baby Size</th>
+                        <th>Info</th>
+                    </thead>
+                </table>
 
-        <section class="row">
-            <button id="weekInfoBtn" class="col-8 offset-2 text-center btn">View info for week 10</button>
-        </section>
+            </section>
 
-        <div id="content-divider" class="col-12"></div>
 
+<<<<<<< HEAD
         <!-- empty section for api content -->
         <section class="row">
             <div class="col">
 
             </div>
         </section>
+=======
 
+
+            <div id="content-divider" class="col-12"></div>
+>>>>>>> origin
+
+            <!-- empty section for api content -->
+            <section class="row">
+                <div class="col">
+
+                </div>
+            </section>
+        </main>
 
 
     </div>
@@ -59,9 +99,10 @@
 
 
 
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="assets/javascript/app.js"></script>
 </body>
 </html>

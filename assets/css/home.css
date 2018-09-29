@@ -1,0 +1,77 @@
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgba(161, 161, 161, .2);
+}
+
+main {
+    font-size: 1.2rem;
+}
+
+header h1 {
+    margin-bottom: 0;
+}
+
+
+.btn {
+    border-radius: 2px;
+    border-color: #57201F;
+    background-color: rgba(135, 135, 135, .6);
+    color: #57201F;
+    font-weight: 700;
+}
+
+
+header h1 {
+    font-size: 3rem;
+}
+
+#header-divider {
+    border-top: 2px solid black;
+    width: 100%;
+}
+
+.img-thumbnail {
+    border-color: #57201F;
+}
+
+
+/* card toggle init display */
+.Card .back {
+    display: none;
+}
+
+#weekInfoBtn2 {
+    display: none;
+}
+
+<<<<<<< HEAD:assets/css/styles.css
+div .progress .progress-bar {
+    width: 10%;
+=======
+
+
+
+/* progress bar */
+div.progress .progress-bar {
+    width: 25%;    
+>>>>>>> origin:assets/css/home.css
+}
+
+div.progress {
+    border-radius: 2px;
+    height: 40px;
+}
+
+div h2 {
+    text-decoration: underline;
+    font-size: 1.5rem;
+}
+
+#content-divider {
+    margin-top: 1rem;
+    border-top: 1px solid black;
+}
