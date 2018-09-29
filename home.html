@@ -26,9 +26,6 @@
                 <div class="CardContainer col col-sm-10 offset-sm-1 col-md-4 offset-md-0 text-center">
                     
                     <div class="Card">
-                        <div class="front">
-                            <img class="img-fluid img-thumbnail" src="assets/images/placeholder.jpg" alt="Dad with baby sleeping">
-                        </div>
                         <div class="back">
                             <table class="table d-md-none">
                                 <thead>
@@ -38,6 +35,10 @@
                                 </thead>
                             </table>
                         </div>
+                        <div class="front">
+                            <img class="img-fluid img-thumbnail" src="assets/images/placeholder.jpg" alt="Dad with baby sleeping">
+                        </div>
+                        
                     </div>
 
                     <div class="w-100 my-2"></div>
@@ -97,15 +98,17 @@
 
 <script>
     $('#weekInfoBtn').click(function() {
-        $('.Card').toggleClass('flipped');
-        $('#weekInfoBtn').hide();
-        $('#weekInfoBtn2').show();
+        $('.back').toggle( 2000 );
+        $('.front').toggle( 2000 );
+        $('#weekInfoBtn').toggle( 2000 );
+        $('#weekInfoBtn2').toggle( 2000 );
     })
 
     $('#weekInfoBtn2').click(function() {
-        $('.Card').toggleClass('flipped');
-        $('#weekInfoBtn2').hide();
-        $('#weekInfoBtn').show();
+        $('.back').toggle( 2000 );
+        $('.front').toggle( 2000 );
+        $('#weekInfoBtn2').toggle( 2000 );
+        $('#weekInfoBtn').toggle( 2000 );
     });
 
 </script>
