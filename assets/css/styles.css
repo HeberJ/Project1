@@ -52,9 +52,10 @@ header h1 {
     margin-top: 3rem;
 }
 
-div.progress .progress-bar {
-    width: 25%;    
+div .progress .progress-bar {
+    width: 10%;
 }
+
 div.progress {
     border-radius: 2px;
     height: 40px;
