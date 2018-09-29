@@ -2,15 +2,15 @@
 
 // show/hide table/card on mobile
 $('#weekInfoBtn').click(function() {
-    $('.back').toggle("slow");
-    $('.front').toggle("slow");
-    $('#weekInfoBtn').toggle("slow");
-    $('#weekInfoBtn2').toggle("slow");
+    $('.back').slideToggle("slow", "linear");
+    $('.front').slideToggle("slow", "linear");
+    $('#weekInfoBtn').toggle("slow", "linear");
+    $('#weekInfoBtn2').toggle("slow", "linear");
 })
 
 $('#weekInfoBtn2').click(function() {
-    $('.back').toggle("slow");
-    $('.front').toggle("slow");
-    $('#weekInfoBtn2').toggle("slow");
-    $('#weekInfoBtn').toggle("slow");
+    $('.back').slideToggle("slow", "linear");
+    $('.front').slideToggle("slow", "linear");
+    $('#weekInfoBtn2').toggle("slow", "linear");
+    $('#weekInfoBtn').toggle("slow", "linear");
 });
