@@ -54,6 +54,26 @@ header h1 {
     border-color: #57201F;
 }
 
+.Card {
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.Card div {
+    backface-visibility: hidden;
+}
+
+.Card .back {
+    transform: rotateY(180deg);
+}
+
+.Card.flipped {
+    transform: rotateY(180deg);
+}
+
+#weekInfoBtn2 {
+    display: none;
+}
 
 div.progress .progress-bar {
     width: 25%;    
