@@ -73,14 +73,21 @@ div.progress {
     height: 40px;
 }
 
-div h2 {
-    text-decoration: underline;
-    font-size: 1.5rem;
-}
-
 #content-divider {
     margin-top: 1rem;
     border-top: 1px solid black;
+}
+
+section div header {
+    background-color: inherit;
+}
+
+section div header h2 {
+    text-decoration: none;
+    background-color: inherit;
+    margin: 10px 0px 0px 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 
