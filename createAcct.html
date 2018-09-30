@@ -32,18 +32,28 @@
         </section>
 
         <!-- main content/login form -->
-        <section class="row mt-5">
+        <!-- <section class="row mt-5"> -->
 
-            <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+            <!-- <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4"> -->
                 <!-- account form -->
-                <form>
-                    <div class="form-group">
-                        <label for="createUsername">Username</label>
-                        <input type="text" id="createUsername" class="form-control">
+                <form class="mt-5">
+                    <div class="form-group row">
+                        <label class="col-form-label col-5 text-right" for="createUsername">New Username:</label>
+                        <div class="col-7 col-md-5 col-xl-4">
+                            <input type="text" id="createUsername" class="form-control">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="createPassword">Password</label>
-                        <input type="password" id="createPassword" class="form-control">
+                    <div class="form-group row">
+                        <label class="col-form-label col-5 text-right" for="createPassword">New Password:</label>
+                        <div class="col-7 col-md-5 col-xl-4">
+                            <input type="password" id="createPassword" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-5 text-right" for="dueDate">Baby Due Date: </label>
+                        <div class="col-7 col-md-5 col-xl-4.">
+                            <input type="date" id="dueDate" class="form-control">
+                        </div>
                     </div>
                     <div class="text-center">
                         <button id="submitNewAcct" type="submit" class="btn">Create Account</button>
@@ -52,9 +62,9 @@
 
                 
 
-            </div>
+            <!-- </div> -->
 
-        </section>
+        <!-- </section> -->
 
 
 
