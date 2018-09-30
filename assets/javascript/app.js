@@ -1,15 +1,21 @@
 $(document).ready(function () {
     //******************************************************************************************************************
+    // Global variables
+    //******************************************************************************************************************
+    var progress_bar_classes = $('#progress, #progress-bar');
+    //progress_bar_classes.width("100%");
+
+    //******************************************************************************************************************
     // Firebase
     //******************************************************************************************************************
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyC9wXblkYdSGpUua-vlK1-7SOurBhMk9WU",
-        authDomain: "heber-jimenez.firebaseapp.com",
-        databaseURL: "https://heber-jimenez.firebaseio.com",
-        projectId: "heber-jimenez",
-        storageBucket: "heber-jimenez.appspot.com",
-        messagingSenderId: "998070338439"
+        apiKey: "AIzaSyCFzjooljdUzuaCdgT0bpYltwVLdEIFuvw",
+        authDomain: "dev-dads.firebaseapp.com",
+        databaseURL: "https://dev-dads.firebaseio.com",
+        projectId: "dev-dads",
+        storageBucket: "",
+        messagingSenderId: "811600816993"
     };
     firebase.initializeApp(config);
 
@@ -24,82 +30,87 @@ $(document).ready(function () {
     //==========================================================================
     // Progress bar udates
     //==========================================================================
-    function updateProgressBar(user_name) {
+    function updateProgressBar(baby_due_date) {
+        window.location.href = "../../home.html";
         //40 weeks of pregnancy
-        var days_Left_unil_baby;
+        //Setting todays date
         var todays_date = new Date();
-        console.log('todays date:  ' + todays_date);
+        //Finding the difference bewtween the dates by milli sec.
+        var date_difference = baby_due_date - todays_date;
+        //Converting millisecs to weeks
+        var weeks_Left_unil_baby = Math.ceil(date_difference / (1000 * 3600 * 24 * 7));
+        //Updating how many weeks are left on HTML
 
-        var num = db.ref('users/'+user_name).on('value', function(snapshot) {
-            console.log(snapshot.val().user_baby_due_dated_string);
-
-            //Making the due date from string to a date
-            var baby_due_date = new Date(snapshot.val().user_baby_due_dated_string);
-            console.log(baby_due_date);
-
-            var date_difference = Math.abs(baby_due_date.getDate() - todays_date.getDate());
-
-            console.log(days_Left_unil_baby);
-        });
+        //Finding the progress of the pregnancy by percent
+        var progress_percent = (1 - (weeks_Left_unil_baby / 40)) * 100;
+        console.log(progress_percent);
+        $('.progress-bar').width(progress_percent);
     }
 
 
     //******************************************************************************************************************
     // Button Clicks
     //******************************************************************************************************************
-
     //==========================================================================
     // Action for loggin button.
     //==========================================================================
-    $("#submitButton").on("click", function () {
+    $("#submitLogin").on("click", function () {
         event.preventDefault();
-        var user_name = $("#username").val().trim();
-        updateProgressBar(user_name);
-        //window.location.href = "../../home.html";
+
+        var loggin_name = $("#username").val().trim();
+        var loggin_password = $("#password").val().trim();
+
+        //if pass and user then
+        db.ref('users/' + loggin_name).on('value', function(snapshot) {
+            if(snapshot.val().user_password === loggin_password) {
+                var baby_due_date = new Date(snapshot.val().user_baby_due_date_string);
+                updateProgressBar(baby_due_date);
+            }
+        });
     });
 
     //==========================================================================
-    // Creating a new accoun
+    // Load new account page
     //==========================================================================
     $("#createAccount").on("click", function () {
-        // Need to load the create page.
+        //Loading the create page.
+        window.location.href = "createAcct.html"
+    });
 
-        // window.location.href = "../../"
-
+    //==========================================================================
+    // Create new Account
+    //==========================================================================
+    $('#submitNewAcct').on('click', function () {
+        event.preventDefault();
         // User's information to creat account
-        var first_name = "john";
-        var last_name = "doe";
-        var user_email = "email";
-        var user_name = "heeb";
-        var user_password = "pass";
-        var user_confirm_password = "pass";
-        var user_baby_due_dated_string = "12/01/18"
+        var username = $("#createUsername").val().trim();
+        var user_password = $("#createPassword").val().trim();
+        //var user_baby_due_date_string = "12/01/18"
 
-        // Pushing user info to Firebase
-        db.ref('/users/'+user_name).set({
-            first_name,
-            last_name,
-            user_email,
-            user_name,
+        // Setting user info to Firebase
+        db.ref('/users/'+username).set({
+            username,
             user_password,
-            user_confirm_password,
-            user_baby_due_dated_string,
-
+            user_baby_due_date_string: "12/01/18",
         });
     });
 
 
-// show/hide table/card on mobile
-$('#weekInfoBtn').click(function() {
-    $('.back').slideToggle("slow", "linear");
-    $('.front').slideToggle("slow", "linear");
-    $('#weekInfoBtn').toggle("slow", "linear");
-    $('#weekInfoBtn2').toggle("slow", "linear");
-})
+    //******************************************************************************************************************
+    // Animations
+    //******************************************************************************************************************
+        // show/hide table/card on mobile
+        $('#weekInfoBtn').click(function() {
+            $('.back').slideToggle("slow", "linear");
+            $('.front').slideToggle("slow", "linear");
+            $('#weekInfoBtn').toggle("slow", "linear");
+            $('#weekInfoBtn2').toggle("slow", "linear");
+        });
 
-$('#weekInfoBtn2').click(function() {
-    $('.back').slideToggle("slow", "linear");
-    $('.front').slideToggle("slow", "linear");
-    $('#weekInfoBtn2').toggle("slow", "linear");
-    $('#weekInfoBtn').toggle("slow", "linear");
+        $('#weekInfoBtn2').click(function() {
+            $('.back').slideToggle("slow", "linear");
+            $('.front').slideToggle("slow", "linear");
+            $('#weekInfoBtn2').toggle("slow", "linear");
+            $('#weekInfoBtn').toggle("slow", "linear");
+        });
 });

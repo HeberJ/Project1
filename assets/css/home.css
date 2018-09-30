@@ -48,23 +48,17 @@ header h1 {
     display: none;
 }
 
-<<<<<<< HEAD:assets/css/styles.css
-div .progress .progress-bar {
-    width: 10%;
-=======
-
-
-
 /* progress bar */
-div.progress .progress-bar {
-    width: 25%;    
->>>>>>> origin:assets/css/home.css
+div.progress-bar {
+    width: 25%;
 }
+
 
 div.progress {
     border-radius: 2px;
     height: 40px;
 }
+
 
 div h2 {
     text-decoration: underline;
