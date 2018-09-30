@@ -11,8 +11,15 @@ main {
     font-size: 1.2rem;
 }
 
+header {
+    margin-bottom: 3rem;
+    background-color: white;
+}
+
 header h1 {
     margin-bottom: 0;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 3rem;
 }
 
 
@@ -25,8 +32,14 @@ header h1 {
 }
 
 
-header h1 {
-    font-size: 3rem;
+table th {
+    background-color: #57201F;
+    color: #EDEDED;
+}
+
+p {
+    color: #57201F;
+    font-weight: 600;
 }
 
 #header-divider {
@@ -68,4 +81,15 @@ div h2 {
 #content-divider {
     margin-top: 1rem;
     border-top: 1px solid black;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2vh;
+    /* background-color: #6A706E; */
+    background-color: #001427;
 }
