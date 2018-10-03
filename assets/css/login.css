@@ -32,12 +32,14 @@ header h1 {
     background-color: rgba(135, 135, 135, .6);
     color: #57201F;
     font-weight: 700;
+    font-size: 1.3rem;
 }
 
-#no-account {
+div p {
     margin-bottom: 0;
     font-style: italic;
     font-weight: 500;
+    font-size: 1.2rem;
 }
 
 
