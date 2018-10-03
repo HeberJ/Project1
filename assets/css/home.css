@@ -29,6 +29,7 @@ header h1 {
     background-color: rgba(135, 135, 135, .6);
     color: #57201F;
     font-weight: 700;
+    font-size: 1.2rem;
 }
 
 
@@ -38,6 +39,7 @@ table th {
 }
 
 p {
+    margin-top: 5px;
     color: #57201F;
     font-weight: 600;
 }
@@ -65,6 +67,11 @@ p {
 
 
 /* progress bar */
+small {
+    font-style: italic;
+    font-size: .9rem;
+}
+
 div.progress .progress-bar {
     width: 25%;    
 }
