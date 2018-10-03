@@ -68,8 +68,6 @@ $(document).ready(function() {
         {week_10:
             [{week: "10", size: "1.2 inches", info: "Cartilage and bones forming, fingernails and hair start appearing"}]
         }
-
-
     ]
 
 });
