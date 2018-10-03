@@ -1,10 +1,5 @@
 $(document).ready(function() {
     //******************************************************************************************************************
-    // Global variables
-    //******************************************************************************************************************
-    var progress_bar_classes = $('#progress, #progress-bar');
-
-    //******************************************************************************************************************
     // Firebase
     //******************************************************************************************************************
     // Initialize Firebase
@@ -22,32 +17,6 @@ $(document).ready(function() {
     var db = firebase.database();
 
     //******************************************************************************************************************
-    // Functiions
-    //******************************************************************************************************************
-
-    //==========================================================================
-    // Progress bar udates
-    //==========================================================================
-    function updateProgressBar(baby_due_date) {
-        window.location.href = '../../home.html';
-        //40 weeks of pregnancy
-        //Setting todays date
-        var todays_date = new Date();
-        //Finding the difference bewtween the dates by milli sec.
-        var date_difference = baby_due_date - todays_date;
-        //Converting millisecs to weeks
-        var weeks_Left_unil_baby = Math.ceil(
-            date_difference / (1000 * 3600 * 24 * 7)
-        );
-        //Updating how many weeks are left on HTML
-
-        //Finding the progress of the pregnancy by percent
-        var progress_percent = (1 - weeks_Left_unil_baby / 40) * 100;
-        console.log(progress_percent);
-        $('.progress-bar').width(progress_percent);
-    }
-
-    //******************************************************************************************************************
     // Button Clicks
     //******************************************************************************************************************
     //==========================================================================
@@ -63,13 +32,10 @@ $(document).ready(function() {
             .val()
             .trim();
 
-        //if pass and user then
         db.ref('users/' + loggin_name).on('value', function(snapshot) {
             if (snapshot.val().user_password === loggin_password) {
-                var baby_due_date = new Date(
-                    snapshot.val().user_baby_due_date_string
-                );
-                updateProgressBar(baby_due_date);
+                sessionStorage.setItem('username', loggin_name);
+                window.location.href = '../../home.html';
             }
         });
     });
@@ -94,14 +60,22 @@ $(document).ready(function() {
         var user_password = $('#createPassword')
             .val()
             .trim();
-        //var user_baby_due_date_string = "12/01/18"
+        var user_baby_due_date_string = $('#dueDate').val();
 
-        // Setting user info to Firebase
-        db.ref('/users/' + username).set({
-            username,
-            user_password,
-            user_baby_due_date_string: '12/01/18'
-        });
+        if (username && user_password && user_baby_due_date_string) {
+            if (user_password.length > 5) {
+                // Setting user info to Firebase
+                db.ref('/users/' + username).set({
+                    username,
+                    user_password,
+                    user_baby_due_date_string
+                });
+            } else {
+                alert('Password must be longer than 6 characters long.');
+            }
+        } else {
+            alert('Please fill in all the fields.');
+        }
     });
 
     //******************************************************************************************************************
