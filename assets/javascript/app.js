@@ -16,6 +16,13 @@ $(document).ready(function() {
     // Create a variable to reference the database
     var db = firebase.database();
 
+    // Initiating user with atleast one user
+    db.ref('/users/Sample').set({
+        username: 'Example User',
+        user_password: 'password',
+        user_baby_due_date_string: 'mm/dd/yyyy'
+    });
+
     //******************************************************************************************************************
     // Button Clicks
     //******************************************************************************************************************
@@ -61,18 +68,25 @@ $(document).ready(function() {
             .val()
             .trim();
         var user_baby_due_date_string = $('#dueDate').val();
+        var username_exists = false;
 
-        if (username && user_password && user_baby_due_date_string) {
-            if (user_password.length > 5) {
-                // Setting user info to Firebase
-                db.ref('/users/' + username).set({
-                    username,
-                    user_password,
-                    user_baby_due_date_string
-                });
-            } else {
-                alert('Password must be longer than 6 characters long.');
+        db.ref('users/' + username).on('value', function(snapshot) {
+            if (snapshot.val().exists()) {
+                console.log('true');
             }
+        });
+
+        if (username_exists) {
+            alert('User name not available. Please select a new username');
+        } else if (user_password.length < 5) {
+            alert('Login password must be longer than 6 characters long');
+        } else if (username && user_password && user_baby_due_date_string) {
+            // Setting user info to Firebase
+            db.ref('/users/' + username).set({
+                username,
+                user_password,
+                user_baby_due_date_string
+            });
         } else {
             alert('Please fill in all the fields.');
         }
