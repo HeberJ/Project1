@@ -32,13 +32,16 @@ $(document).ready(function() {
     $('#submitLogin').on('click', function() {
         event.preventDefault();
 
+        //Taking username from user
         var loggin_name = $('#username')
             .val()
             .trim();
+        //Taking password from user
         var loggin_password = $('#password')
             .val()
             .trim();
 
+        //Varrifies username and password
         db.ref('users/' + loggin_name).on('value', function(snapshot) {
             if (snapshot.val().user_password === loggin_password) {
                 sessionStorage.setItem('username', loggin_name);
@@ -70,26 +73,31 @@ $(document).ready(function() {
         var user_baby_due_date_string = $('#dueDate').val();
         var username_exists = false;
 
-        db.ref('users/' + username).on('value', function(snapshot) {
-            if (snapshot.val().exists()) {
-                console.log('true');
+        //Checking if use input meet criteria
+        db.ref('users/').once('value', function(snapshot) {
+            // This is checking if username already exists
+            if (snapshot.hasChild(username)) {
+                username_exists = true;
+            }
+
+            if (username_exists) {
+                // Alerts user if user name is take
+                alert('User name not available. Please select a new username');
+            } else if (user_password.length < 5) {
+                // Alerts user if password is to short
+                alert('Login password must be longer than 6 characters long');
+            } else if (username && user_password && user_baby_due_date_string) {
+                // Setting user info to Firebase
+                db.ref('/users/' + username).set({
+                    username,
+                    user_password,
+                    user_baby_due_date_string
+                });
+                window.location.href = 'index.html';
+            } else {
+                alert('Please fill in all the fields.');
             }
         });
-
-        if (username_exists) {
-            alert('User name not available. Please select a new username');
-        } else if (user_password.length < 5) {
-            alert('Login password must be longer than 6 characters long');
-        } else if (username && user_password && user_baby_due_date_string) {
-            // Setting user info to Firebase
-            db.ref('/users/' + username).set({
-                username,
-                user_password,
-                user_baby_due_date_string
-            });
-        } else {
-            alert('Please fill in all the fields.');
-        }
     });
 
     //******************************************************************************************************************
