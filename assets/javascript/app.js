@@ -42,7 +42,7 @@ $(document).ready(function() {
             .trim();
 
         //Varrifies username and password
-        db.ref('users/' + loggin_name).on('value', function(snapshot) {
+        db.ref('/users/' + loggin_name).on('value', function(snapshot) {
             if (snapshot.val().user_password === loggin_password) {
                 sessionStorage.setItem('username', loggin_name);
                 window.location.href = 'home.html';
@@ -74,7 +74,7 @@ $(document).ready(function() {
         var username_exists = false;
 
         //Checking if use input meet criteria
-        db.ref('users/').once('value', function(snapshot) {
+        db.ref('/users').once('value', function(snapshot) {
             // This is checking if username already exists
             if (snapshot.hasChild(username)) {
                 username_exists = true;
@@ -103,18 +103,6 @@ $(document).ready(function() {
     //******************************************************************************************************************
     // APIs
     //******************************************************************************************************************
-    //==========================================================================
-    // Goodreads API
-    //==========================================================================
-    var queryURL =
-        'https://www.goodreads.com/search.xml?key=I0m2HtD8bZDdizy62t9uQ&q=Prenatal+parenting';
-
-    $.ajax({
-        url: queryURL,
-        method: 'GET'
-    }).then(function(response) {
-        // console.log(response);
-    });
 
     //******************************************************************************************************************
     // Animations
