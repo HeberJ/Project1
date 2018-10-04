@@ -45,7 +45,7 @@ $(document).ready(function() {
         db.ref('users/' + loggin_name).on('value', function(snapshot) {
             if (snapshot.val().user_password === loggin_password) {
                 sessionStorage.setItem('username', loggin_name);
-                window.location.href = '../../home.html';
+                window.location.href = 'home.html';
             }
         });
     });
@@ -98,6 +98,22 @@ $(document).ready(function() {
                 alert('Please fill in all the fields.');
             }
         });
+    });
+
+    //******************************************************************************************************************
+    // APIs
+    //******************************************************************************************************************
+    //==========================================================================
+    // Goodreads API
+    //==========================================================================
+    var queryURL =
+        'https://www.goodreads.com/search.xml?key=I0m2HtD8bZDdizy62t9uQ&q=Prenatal+parenting';
+
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    }).then(function(response) {
+        // console.log(response);
     });
 
     //******************************************************************************************************************
