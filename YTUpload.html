@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>YouTube Videos</title>
+</head>
+
+<body>
+
+    <img class="videos-appear-here">
+    <img class="videos-here">
+
+    <iframe width="315" height="315"
+    src="https://www.youtube.com/embed/I6BdAtlV79g?controls=0">
+    </iframe>
+    <iframe width="315" height="315"
+    src="https://www.youtube.com/embed/WtDknjng8TA?controls=0">
+    </iframe>
+    <iframe width="315" height="315"
+    src="https://www.youtube.com/embed/n65HW1iJUuY?controls=0">
+    </iframe>
+    
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Example queryURL for Google API
+    //var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&forDeveloper=true&maxResults=5&q=swaddling&safeSearch=moderate&key=AIzaSyCyVZ7FuPdYiUNsKb2pwPSJpaezNGp0yA0";
+    
+    //var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=swaddling&type=video&videoCaption=closedCaption&key=AIzaSyCyVZ7FuPdYiUNsKb2pwPSJpaezNGp0yA0";
+   // var APIKey ="AIzaSyCyVZ7FuPdYiUNsKb2pwPSJpaezNGp0yA0"
+
+    var search = "Developing_Dad"
+    var queryURL = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=PLREt7zmQ0ia9h4ei96HMYofMIKAjjJeqP&key=AIzaSyCyVZ7FuPdYiUNsKb2pwPSJpaezNGp0yA0"; 
+   
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+      console.log(response.items[0].contentDetails.videoId);
+      console.log(response.items[1].contentDetails.videoId);
+      console.log(response.items[2].contentDetails.videoId);
+      
+      
+      
+
+    
+
+
+    });
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
