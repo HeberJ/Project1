@@ -53,23 +53,54 @@ $(document).ready(function() {
     // Table Data Object
     //*************************************************************
     var tableData = [
-        {week_6: 
-            [{week: "6", size: "1/4 inch", info: "Blood is circulating, hands and feet are little paddle shapes. Eyes, nose, and ears are sprouting"}]
+        {
+            week_6: [
+                {
+                    week: '6',
+                    size: '1/4 inch',
+                    info:
+                        'Blood is circulating, hands and feet are little paddle shapes. Eyes, nose, and ears are sprouting'
+                }
+            ]
         },
-        {week_7:
-            [{week: "7", size: "1/2 inch", info: "Arm and leg joints forming, kidneys have started developing"}]        
+        {
+            week_7: [
+                {
+                    week: '7',
+                    size: '1/2 inch',
+                    info:
+                        'Arm and leg joints forming, kidneys have started developing'
+                }
+            ]
         },
-        {week_8:
-            [{week: "8", size: ".60 inches", info: "Slightly webbed fingers and toes, tail is gone"}]
+        {
+            week_8: [
+                {
+                    week: '8',
+                    size: '.60 inches',
+                    info: 'Slightly webbed fingers and toes, tail is gone'
+                }
+            ]
         },
-        {week_9:
-            [{week: "9", size: "1 inch", info: "Major organs have formed and are now growing (Brain, heart, lungs)"}]
+        {
+            week_9: [
+                {
+                    week: '9',
+                    size: '1 inch',
+                    info:
+                        'Major organs have formed and are now growing (Brain, heart, lungs)'
+                }
+            ]
         },
-        {week_10:
-            [{week: "10", size: "1.2 inches", info: "Cartilage and bones forming, fingernails and hair start appearing"}]
+        {
+            week_10: [
+                {
+                    week: '10',
+                    size: '1.2 inches',
+                    info:
+                        'Cartilage and bones forming, fingernails and hair start appearing'
+                }
+            ]
         }
-    ]
-
+    ];
 });
-
-
