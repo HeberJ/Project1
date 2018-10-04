@@ -1,10 +1,9 @@
-
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    background-color: rgba(161, 161, 161, .2);
+    background-color: rgba(161, 161, 161, 0.2);
 }
 
 main {
@@ -22,25 +21,23 @@ header h1 {
     font-size: 3rem;
 }
 
-
 .btn {
     border-radius: 2px;
-    border-color: #57201F;
-    background-color: rgba(135, 135, 135, .6);
-    color: #57201F;
+    border-color: #57201f;
+    background-color: rgba(135, 135, 135, 0.6);
+    color: #57201f;
     font-weight: 700;
     font-size: 1.2rem;
 }
 
-
 table th {
-    background-color: #57201F;
-    color: #EDEDED;
+    background-color: #57201f;
+    color: #ededed;
 }
 
 p {
     margin-top: 5px;
-    color: #57201F;
+    color: #57201f;
     font-weight: 600;
 }
 
@@ -50,9 +47,8 @@ p {
 }
 
 .img-thumbnail {
-    border-color: #57201F;
+    border-color: #57201f;
 }
-
 
 /* card toggle init display */
 .Card .back {
@@ -63,17 +59,14 @@ p {
     display: none;
 }
 
-
-
-
 /* progress bar */
 small {
     font-style: italic;
-    font-size: .9rem;
+    font-size: 0.9rem;
 }
 
 div.progress .progress-bar {
-    width: 25%;    
+    width: 25%;
 }
 div.progress {
     border-radius: 2px;
@@ -96,7 +89,6 @@ section div header h2 {
     font-size: 1.5rem;
     font-weight: 600;
 }
-
 
 footer {
     position: fixed;
