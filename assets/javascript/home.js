@@ -23,6 +23,7 @@ $(document).ready(function() {
     //40 weeks of pregnancy
     var username = sessionStorage.getItem('username');
     var baby_due_date;
+    var weeks_of_baby;
 
     db.ref('users/' + username).on('value', function(snapshot) {
         baby_due_date = new Date(snapshot.val().user_baby_due_date_string);
@@ -38,15 +39,28 @@ $(document).ready(function() {
         //Finding the difference bewtween the dates by milli sec.
         var date_difference = baby_due_date - todays_date;
         //Converting millisecs to weeks
-        var weeks_Left_unil_baby = Math.ceil(
-            date_difference / (1000 * 3600 * 24 * 7)
-        );
+        weeks_of_baby = Math.ceil(date_difference / (1000 * 3600 * 24 * 7));
+        console.log(weeks_of_baby);
         //Updating how many weeks are left on HTML
 
         //Finding the progress of the pregnancy by percent
-        var progress_percent = (1 - weeks_Left_unil_baby / 40) * 100;
+        var progress_percent = (weeks_of_baby / 40) * 100;
         console.log(progress_percent);
-        $('.progress-bar, progress').width(progress_percent + '%');
+        $('.progress-bar').width(progress_percent + '%');
+        updateTable(weeks_of_baby);
+    }
+
+    function updateTable(weeks_of_baby) {
+        $('.weekNumber').html(weeks_of_baby);
+        $.each(tableData, function(index, value) {
+            if (tableData[index].week === weeks_of_baby) {
+                var table_row = $('<tr>');
+                table_row.append('<td>' + tableData[index].week);
+                table_row.append('<td>' + tableData[index].sizes);
+                table_row.append('<td>' + tableData[index].info);
+                $('thead').append(table_row);
+            }
+        });
     }
 
     //*************************************************************
@@ -54,53 +68,37 @@ $(document).ready(function() {
     //*************************************************************
     var tableData = [
         {
-            week_6: [
-                {
-                    week: '6',
-                    size: '1/4 inch',
-                    info:
-                        'Blood is circulating, hands and feet are little paddle shapes. Eyes, nose, and ears are sprouting'
-                }
-            ]
+            week: 6,
+            sizes: '1/4 inch',
+            info:
+                'Blood is circulating, hands and feet are little paddle shapes. Eyes, nose, and ears are sprouting'
         },
         {
-            week_7: [
-                {
-                    week: '7',
-                    size: '1/2 inch',
-                    info:
-                        'Arm and leg joints forming, kidneys have started developing'
-                }
-            ]
+            week: 7,
+            sizes: '1/2 inch',
+            info: 'Arm and leg joints forming, kidneys have started developing'
         },
         {
-            week_8: [
-                {
-                    week: '8',
-                    size: '.60 inches',
-                    info: 'Slightly webbed fingers and toes, tail is gone'
-                }
-            ]
+            week: 8,
+            sizes: '.60 inches',
+            info: 'Slightly webbed fingers and toes, tail is gone'
         },
         {
-            week_9: [
-                {
-                    week: '9',
-                    size: '1 inch',
-                    info:
-                        'Major organs have formed and are now growing (Brain, heart, lungs)'
-                }
-            ]
+            week: 9,
+            sizes: '1 inch',
+            info:
+                'Major organs have formed and are now growing (Brain, heart, lungs)'
         },
         {
-            week_10: [
-                {
-                    week: '10',
-                    size: '1.2 inches',
-                    info:
-                        'Cartilage and bones forming, fingernails and hair start appearing'
-                }
-            ]
+            week: 10,
+            sizes: '1.2 inches',
+            info:
+                'Cartilage and bones forming, fingernails and hair start appearing'
+        },
+        {
+            week: 30,
+            sizes: '15.7 inches',
+            info: `Her eyesight continues to develop, though it's not very keen; even after she's born, she'll keep her eyes closed for a good part of the day.`
         }
     ];
 });
