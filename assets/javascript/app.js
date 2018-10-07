@@ -26,8 +26,13 @@ $(document).ready(function() {
     //******************************************************************************************************************
     // APIs
     //******************************************************************************************************************
-    function checkEmail(user_email) {
-        var user_email = 'iheberj@gmail.com';
+    function checkEmail(
+        username,
+        user_password,
+        user_email,
+        user_baby_due_date_string
+    ) {
+        var username_exists = false;
         var queryUrl =
             'https://ajith-Verify-email-address-v1.p.mashape.com/varifyEmail?email=' +
             user_email;
@@ -38,7 +43,46 @@ $(document).ready(function() {
             data: {},
             dataType: 'json',
             success: function(data) {
-                console.log(data);
+                var user_email_exist = data.exist;
+                //Checking if use input meet criteria
+                setTimeout(function() {
+                    db.ref('/users').once('value', function(snapshot) {
+                        // This is checking if username already exists
+                        if (snapshot.hasChild(username)) {
+                            username_exists = true;
+                        }
+
+                        if (username_exists) {
+                            // Alerts user if user name is take
+                            alert(
+                                'User name not available. Please select a new username'
+                            );
+                        } else if (user_password.length < 5) {
+                            // Alerts user if password is to short
+                            alert(
+                                'Login password must be longer than 6 characters long'
+                            );
+                        } else if (
+                            username &&
+                            user_password &&
+                            user_baby_due_date_string &&
+                            user_email_exist
+                        ) {
+                            // Setting user info to Firebase
+                            db.ref('/users/' + username).set({
+                                username,
+                                user_password,
+                                user_baby_due_date_string,
+                                user_email
+                            });
+                            window.location.href = 'index.html';
+                        } else if (!user_email_exist) {
+                            alert('Please user real email');
+                        } else {
+                            alert('Please fill in all the fields.');
+                        }
+                    });
+                }, 3000);
             },
             error: function(err) {
                 alert('Internet Disconnected!');
@@ -92,6 +136,7 @@ $(document).ready(function() {
     //==========================================================================
     $('#submitNewAcct').on('click', function() {
         event.preventDefault();
+        $('.or').html('Creating Account...');
         // User's information to creat account
         var username = $('#createUsername')
             .val()
@@ -99,36 +144,16 @@ $(document).ready(function() {
         var user_password = $('#createPassword')
             .val()
             .trim();
-        var user_email = $('#createPassword')
+        var user_email = $('#newEmail')
             .val()
             .trim();
         var user_baby_due_date_string = $('#dueDate').val();
-        var username_exists = false;
 
-        //Checking if use input meet criteria
-        db.ref('/users').once('value', function(snapshot) {
-            // This is checking if username already exists
-            if (snapshot.hasChild(username)) {
-                username_exists = true;
-            }
-
-            if (username_exists) {
-                // Alerts user if user name is take
-                alert('User name not available. Please select a new username');
-            } else if (user_password.length < 5) {
-                // Alerts user if password is to short
-                alert('Login password must be longer than 6 characters long');
-            } else if (username && user_password && user_baby_due_date_string) {
-                // Setting user info to Firebase
-                db.ref('/users/' + username).set({
-                    username,
-                    user_password,
-                    user_baby_due_date_string
-                });
-                window.location.href = 'index.html';
-            } else {
-                alert('Please fill in all the fields.');
-            }
-        });
+        checkEmail(
+            username,
+            user_password,
+            user_email,
+            user_baby_due_date_string
+        );
     });
 });
