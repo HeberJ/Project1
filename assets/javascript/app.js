@@ -24,6 +24,35 @@ $(document).ready(function() {
     });
 
     //******************************************************************************************************************
+    // APIs
+    //******************************************************************************************************************
+    function checkEmail(user_email) {
+        var user_email = 'iheberj@gmail.com';
+        var queryUrl =
+            'https://ajith-Verify-email-address-v1.p.mashape.com/varifyEmail?email=' +
+            user_email;
+
+        $.ajax({
+            type: 'GET',
+            url: queryUrl,
+            data: {},
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(err) {
+                alert('Internet Disconnected!');
+            },
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader(
+                    'X-Mashape-Authorization',
+                    'RUBYR95KJQmshIZGWXmcupFD1Wdqp1d0MkxjsnO4lRCOc1VPIV'
+                );
+            }
+        });
+    }
+
+    //******************************************************************************************************************
     // Button Clicks
     //******************************************************************************************************************
     //==========================================================================
@@ -70,6 +99,9 @@ $(document).ready(function() {
         var user_password = $('#createPassword')
             .val()
             .trim();
+        var user_email = $('#createPassword')
+            .val()
+            .trim();
         var user_baby_due_date_string = $('#dueDate').val();
         var username_exists = false;
 
@@ -99,11 +131,4 @@ $(document).ready(function() {
             }
         });
     });
-
-    //******************************************************************************************************************
-    // APIs
-    //******************************************************************************************************************
-
-    
-    
 });
