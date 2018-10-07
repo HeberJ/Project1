@@ -102,14 +102,44 @@ $(document).ready(function() {
         }
     ];
 
-    // Hide the Videos when page opens//
-    $(document).ready(function() {
-        $('.iframe').hide();
-    });
 
-    // Show Videos when clicked//
-    $('#videos').click(function() {
-        $('.iframe').show();
+//=====================================================
+//Video resources
+//=====================================================
+// Hide the Videos when page opens//
+$(document).ready(function(){
+    $(".iframe").hide();
+});
+
+// Show Videos when clicked//
+$("#videos").click(function(){
+$(".iframe").show();
+});
+
+//Return to home//
+$("#return").click(function(){
+$(".iframe").hide();
+});
+
+
+
+// YouTube Script with AJAX call//
+
+  var search = "Developing_Dad"
+  var queryURL = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=PLREt7zmQ0ia9h4ei96HMYofMIKAjjJeqP&key=AIzaSyCyVZ7FuPdYiUNsKb2pwPSJpaezNGp0yA0";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+    console.log(response.items)
+    response.items.map(function(item){
+      console.log(item.contentDetails.videoId)
+      var videoId= item.contentDetails.videoId
+      var iFrame = $('<iframe src="https://www.youtube.com/embed/'+videoId+'?controls=0" frameborder="0" scrolling="no" id="myFrame"></iframe>');
+  $(".wrapper").append(iFrame)
+  console.log(iFrame)
     });
 
     //Return to home//
