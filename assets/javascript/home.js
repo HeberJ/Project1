@@ -101,4 +101,22 @@ $(document).ready(function() {
             info: `Her eyesight continues to develop, though it's not very keen; even after she's born, she'll keep her eyes closed for a good part of the day.`
         }
     ];
+
+    //******************************************************************************************************************
+    // Animations
+    //******************************************************************************************************************
+    // show/hide table/card on mobile
+    $('#weekInfoBtn').click(function() {
+        $('.back').slideToggle('slow', 'linear');
+        $('.front').slideToggle('slow', 'linear');
+        $('#weekInfoBtn').toggle('slow', 'linear');
+        $('#weekInfoBtn2').toggle('slow', 'linear');
+    });
+
+    $('#weekInfoBtn2').click(function() {
+        $('.back').slideToggle('slow', 'linear');
+        $('.front').slideToggle('slow', 'linear');
+        $('#weekInfoBtn2').toggle('slow', 'linear');
+        $('#weekInfoBtn').toggle('slow', 'linear');
+    });
 });
