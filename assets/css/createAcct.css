@@ -25,6 +25,10 @@ header h1 {
     border-radius: 2px;
 }
 
+p.or {
+    font-size: 3rem;
+}
+
 .btn {
     border-radius: 2px;
     border-color: #57201F;
